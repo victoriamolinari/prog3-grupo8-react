@@ -1,0 +1,12 @@
+li img {
+    width: 30px;
+    border-radius: 90%;
+    margin-left: 10px;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0px 15px;
+}

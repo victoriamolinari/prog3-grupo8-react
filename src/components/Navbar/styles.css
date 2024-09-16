@@ -1,0 +1,18 @@
+.ul-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.ul-nav li {
+    padding: 0px 15px;
+}
+
+li a {
+    color: #fff
+}
+
+h1, h2 {
+    font-weight: 400;
+}
