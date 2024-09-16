@@ -1,0 +1,22 @@
+body {
+    font-family: Nunito;
+    margin: 0;
+}
+
+.detalle-titulo {
+    font-size: 50px;
+    padding-left: 50px;
+}
+
+.detalle-foto {
+    padding-left: 50px;
+
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
