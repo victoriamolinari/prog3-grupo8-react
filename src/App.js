@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Favoritos from './pages/Favoritos';
 import Populares from './pages/Populares';
 import Upcoming from './pages/Upcoming';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/favoritos" component={Favoritos} />
         <Route path="/populares" component={Populares} />
         <Route path="/upcoming" component={Upcoming} />
+        <Route component={NotFound} />
       </Switch>
       
       
