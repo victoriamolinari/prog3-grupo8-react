@@ -1,0 +1,11 @@
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.h3-section {
+    padding: 10px 20px;
+    font-size: 30px;
+}

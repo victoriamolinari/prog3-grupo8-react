@@ -7,7 +7,7 @@ const Header = () => {
             <ul className="ul-nav">
                 <li> <a href='/'>Home</a> </li>
                 <li> <a href='/favoritos'> Favoritos</a> </li>
-                <li> <a href='/top-10'> Top 10</a> </li>
+                <li> <a href='/upcoming'> Upcoming</a> </li>
                 <li> <a href ='/populares'> Populares</a> </li>
             </ul>
         </div>
