@@ -11,18 +11,20 @@ import Favoritos from './pages/Favoritos';
 import Populares from './pages/Populares';
 import Upcoming from './pages/Upcoming';
 import NotFound from './pages/NotFound';
-import DetallePelicula from './components/DetallePelicula/DetallePelicula';
+
+import Detalle from './pages/Detalle';
 
 function App() {
   return (
     <>
       <Header />
+      
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/favoritos" component={Favoritos} />
         <Route path="/populares" component={Populares} />
         <Route path="/upcoming" component={Upcoming} />
-        <Route path="/detalle/id/:id" component={DetallePelicula}/>
+        <Route path="/detalle/id/:id" component={Detalle} />
         <Route component={NotFound} />
       </Switch>
       
