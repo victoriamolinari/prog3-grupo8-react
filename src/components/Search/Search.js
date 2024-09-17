@@ -1,3 +1,4 @@
+import './styles.css';
 import { Component } from 'react';
 
 class Search extends Component {

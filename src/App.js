@@ -1,10 +1,6 @@
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-// Temporal, hasta que hagamos Link
-import HomeGrid from './components/HomeGrid/HomeGrid';
-import Search from './components/Search/Search';
-
 import { Switch, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Favoritos from './pages/Favoritos';
@@ -18,7 +14,7 @@ function App() {
   return (
     <>
       <Header />
-      
+
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/favoritos" component={Favoritos} />
@@ -27,11 +23,6 @@ function App() {
         <Route path="/detalle/id/:id" component={Detalle} />
         <Route component={NotFound} />
       </Switch>
-      
-      
-      <Search />
-      <HomeGrid /> 
-      {/* Para chequear que funcione pongo el componente HomeGrid acá, después lo ponemos con Link según la url */}
 
       <Footer />
     </>
