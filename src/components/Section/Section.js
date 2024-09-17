@@ -14,19 +14,19 @@ class HomeSection extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         if (this.props.sectionName == "Populares") {
             this.state.data = this.props.popular
         } else {
             this.state.data = this.props.upcoming
         }
-    
-        
+
+
         return (
             <>
                 <div className="div-section">
                     <h3 className="h3-section">{this.props.sectionName}</h3>
-                    <Link to={"/" + this.props.sectionName.toLowerCase()}><button className="ver-todas-button">Ver todas</button></Link >
+                    <Link to={"/" + this.props.sectionName.toLowerCase()}><button className="ver-todas-button" onClick={this.props.reset}>Ver todas</button></Link >
                 </div>
 
 
