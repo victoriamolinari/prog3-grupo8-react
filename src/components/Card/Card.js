@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import { FaRegHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa6";
+
 import './styles.css';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +10,8 @@ class Card extends Component {
     constructor(props) {        // recibe movies={movies}
         super(props);
         this.state = {
-            viewMore: false
+            viewMore: false,
+            fav: false
         }
     }
 
@@ -17,19 +21,32 @@ class Card extends Component {
         })
     }
 
+    hanldeFav() {
+        this.setState({
+            fav: !this.state.fav
+        })
+    }
+
     render() {
         const { id, title, poster_path, overview } = this.props.movies;
 
         return (
             <article className="movies-card">
-                <img src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + poster_path} alt={title} className="movies-image" />
-                <Link to={"/detalle/id/"+ id}><p className="movies-title">{title}</p></Link>
+                <Link to={"/detalle/id/" + id}>
+                    <div>
+                        <img src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + poster_path} alt={title} className="movies-image" />
+                        <p className="movies-title">{title}</p>
+                        <p className={this.state.viewMore ? 'show' : 'hide'}>{overview}</p>
+                    </div>
+                </Link>
 
-                <p className={this.state.viewMore ? 'show' : 'hide'}>{overview}</p>
-                {<button className="movies-button" onClick={() => this.handleViewMore()}> {this.state.viewMore ? 'Ocultar descripción' : 'Ver descripción'} </button>}
-                
-                {/* Falta: botón para agregar a favoritos y botón para ir al detalle de cada película */}
-                
+
+                <div className="div-detalle">
+                    {<button className="movies-button" onClick={() => this.handleViewMore()}> {this.state.viewMore ? 'Ocultar descripción' : 'Ver descripción'} </button>}
+                    {<div onClick={() => this.hanldeFav()} > {this.state.fav ? <FaHeart /> : <FaRegHeart />} </div>}
+                    {/* Falta hacerlo funcional */}
+                </div>
+
             </article>
         )
     }

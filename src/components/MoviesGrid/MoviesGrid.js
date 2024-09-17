@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import './styles.css';
 
-import HomeSection from '../HomeSection/HomeSection';
+import Section from '../Section/Section';
 
-class HomeGrid extends Component {
+class MoviesGrid extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props); // recibe sectionName 
         this.state = {
             popular: [],
             upcoming: []
@@ -27,14 +27,12 @@ class HomeGrid extends Component {
 
 
     render() {
-        console.log(this.state)
         return (
             <>
-                <HomeSection sectionName="Popular" data={this.state.popular.slice(0, 5)} />
-                <HomeSection sectionName="Upcoming" data={this.state.upcoming.slice(0, 5)} />
+                <Section sectionName={this.props.sectionName} popular={this.state.popular} upcoming={this.state.upcoming} />
             </>
         )
     }
 }
 
-export default HomeGrid;
+export default MoviesGrid;

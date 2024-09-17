@@ -4,6 +4,7 @@
 
 .show {
     display: flex;
+    color: #777;
 }
 
 .movies-card {
@@ -15,9 +16,9 @@
     border-radius: 10px;
     color: #777;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: space-between;
     justify-content: space-between;
 }
 
@@ -31,13 +32,22 @@
     border-radius: 8px;
 }
 
+.div-detalle {
+    margin: 0px 3px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .movies-button {
     background-color: #777; /* Green */
     border: none;
     border-radius: 6px;
     color: #fff;
     padding: 8px 14px;
-    margin: 5px 0px;
+    margin: 0px 20px 5px 5px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;

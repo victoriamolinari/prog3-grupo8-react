@@ -1,5 +1,6 @@
 import './styles.css';
 import { Component } from 'react';
+import { FaSearch } from "react-icons/fa";
 
 class Search extends Component {
 
@@ -31,14 +32,13 @@ class Search extends Component {
     render() {
         return (
             <>
-                <h3 className="h3-section">Buscador de Peliculas</h3>
                 <form onSubmit={(event) => this.handleSearchSubmit(event)}>
                     <input onChange={(event) => this.handleSearchChange(event)}
                         type="text"
                         value={this.state.inputSearch}
                         placeholder="Buscar películas..."
                     />
-                    <button type="submit" className="">Enviar</button>
+                    <button type="submit" className=""><FaSearch /></button>
                 </form>
                 
             </>
