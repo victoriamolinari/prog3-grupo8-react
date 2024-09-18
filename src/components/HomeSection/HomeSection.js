@@ -13,7 +13,7 @@ class HomeSection extends Component {
     }
 
     render() {
-        console.log(this.props.data)
+        // console.log(this.props.data)
         return (
             <>
                 <div className="div-section">

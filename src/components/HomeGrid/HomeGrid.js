@@ -27,7 +27,7 @@ class HomeGrid extends Component {
 
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <>
                 <HomeSection sectionName="Popular" data={this.state.popular.slice(0, 5)} />
