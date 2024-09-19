@@ -12,20 +12,23 @@ class MoviesGrid extends Component {
             popular: [],
             popularUnfiltered: [],
             filterRating: false,
-            filterDate: false
+            filterDate: false,
+            isLoading: true
         }
     }
 
     componentDidMount() {
+        setTimeout(() => { //Lo hice para probar que funcione el cargando
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=33e10f642f640258287c658cad162391') // API = 33e10f642f640258287c658cad162391
             .then(response => response.json())
-            .then(data => this.setState({ popular: data.results, popularUnfiltered: data.results }))
+            .then(data => this.setState({ popular: data.results, popularUnfiltered: data.results, isLoading: false }))
             .catch(error => console.error('Error: ', error));
 
         fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=33e10f642f640258287c658cad162391')
             .then(response => response.json())
-            .then(data => this.setState({ upcoming: data.results, upcomingUnfiltered: data.results }))
+            .then(data => this.setState({ upcoming: data.results, upcomingUnfiltered: data.results, isLoading: false }))
             .catch(error => console.error('Error: ', error));
+        }, 1000);
     }
 
     filterByRating = () => {
@@ -73,6 +76,12 @@ class MoviesGrid extends Component {
     }
 
     render() {
+        const {isLoading} = this.state;
+
+        if (isLoading) {
+            return <h1>Cargando...</h1>
+        }
+
         return (
             <>
                 <Filter filterByRating={this.filterByRating} filterByDate={this.filterByDate} filterRating={this.state.filterRating} filterDate={this.state.filterDate} />

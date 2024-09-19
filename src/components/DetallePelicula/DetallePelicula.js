@@ -6,28 +6,31 @@ class DetallePelicula extends Component {
         super(props);
         this.state = {
             movie: null,
-            isFavorite: false
+            isFavorite: false,
+            isLoading: true
         };
     }
 
     componentDidMount() {
+        setTimeout(() => { //Lo hice para probar que funcione el cargando
         fetch(`https://api.themoviedb.org/3/movie/${this.props.id}?api_key=31e421d77201e7a1eefe33f85b67fa3b`)
             .then(response => response.json())
             .then(data => {
-                this.setState({ movie: data });
+                this.setState({ movie: data, isLoading: false });
             })
             .catch(error => console.error('Error: ', error));
-    }
+    }, 1000);
+}
 
     toggleFavorite = () => {
         this.setState(prevState => ({ isFavorite: !prevState.isFavorite }));
     }
 
     render() {
-        const { movie, isFavorite } = this.state;
+        const { movie, isFavorite, isLoading} = this.state;
 
-        if (!movie) {
-            return <h1>Cargando...</h1>;
+        if (isLoading) {
+            return <h1>Cargando...</h1>
         }
 
         return (
