@@ -1,10 +1,12 @@
 import React from 'react';
 
+
 const NotFound = () => {
   return (
     <div>
       <h1>404 - Página no encontrada</h1>
-      <p>Lo sentimos, la página que estás buscando no existe.</p>
+      <h3>Lo sentimos, la página que estás buscando no existe.</h3>
+      <br></br>
     </div>
   );
 };
