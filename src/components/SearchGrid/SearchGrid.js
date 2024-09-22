@@ -4,7 +4,7 @@ import './styles.css';
 
 const SearchGrid = ({movies}) => {
     return (
-        <div className="movies-card">
+        <div className="movies-grid">
             {movies.map((movie) => (
                 <Movie key={movie.id} movies={movie} />
             ))}
