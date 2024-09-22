@@ -15,16 +15,48 @@ class Card extends Component {
         }
     }
 
+    agregarFavorito(){
+        const storage = localStorage.getItem('favoritos');
+        if (storage !== null){
+            const parsedStorage = JSON.parse(storage);
+            parsedStorage.push(this.props.movies.id)
+            const stringStorage = JSON.stringify(parsedStorage)
+            localStorage.setItem('favoritos', stringStorage)
+        }else{
+            const primerFavorito = [this.props.movies.id];
+            const stringStorage = JSON.stringify(primerFavorito);
+            localStorage.setItem('favoritos', stringStorage)
+        }
+    }
+
+    quitarFavoritos(){
+        const storage = localStorage.getItem('favoritos');
+        const parsedStorage = JSON.parse(storage);
+        const restoFavoritos = parsedStorage.filter(id => id !== this.props.movies.id);
+        const stringStorage = JSON.stringify(restoFavoritos)
+        localStorage.setItem('favoritos', stringStorage)
+        this.setState({
+            fav: false
+        })
+    }
+
     handleViewMore() {
         this.setState({
             viewMore: !this.state.viewMore
         })
     }
 
-    hanldeFav() {
+    handleFav() {
         this.setState({
             fav: !this.state.fav
-        })
+        }, 
+        () => {
+            if(this.state.fav) {
+                this.agregarFavorito();
+            } else {
+                this.quitarFavoritos();
+            }
+        });
     }
 
     render() {
@@ -43,7 +75,7 @@ class Card extends Component {
 
                 <div className="div-detalle">
                     {<button className="movies-button" onClick={() => this.handleViewMore()}> {this.state.viewMore ? 'Ocultar descripción' : 'Ver descripción'} </button>}
-                    {<div onClick={() => this.hanldeFav()} > {this.state.fav ? <FaHeart /> : <FaRegHeart />} </div>}
+                    {<div onClick={() => this.handleFav()} > {this.state.fav ? <FaHeart /> : <FaRegHeart />} </div>}
                     {/* Falta hacerlo funcional */}
                 </div>
 
