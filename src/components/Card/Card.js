@@ -15,6 +15,19 @@ class Card extends Component {
         }
     }
 
+    componentDidMount(){
+        const storage = localStorage.getItem('favoritos');
+        if (storage !== null){
+            const parsedStorage = JSON.parse(storage);
+            const esFavorito = parsedStorage.includes(this.props.movies.id)
+            if(esFavorito){
+                this.setState({
+                    fav: true
+                })
+            }
+        }
+    }
+
     agregarFavorito(){
         const storage = localStorage.getItem('favoritos');
         if (storage !== null){
