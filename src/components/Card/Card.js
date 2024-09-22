@@ -89,7 +89,6 @@ class Card extends Component {
                 <div className="div-detalle">
                     {<button className="movies-button" onClick={() => this.handleViewMore()}> {this.state.viewMore ? 'Ocultar descripción' : 'Ver descripción'} </button>}
                     {<div onClick={() => this.handleFav()} > {this.state.fav ? <FaHeart /> : <FaRegHeart />} </div>}
-                    {/* Falta hacerlo funcional */}
                 </div>
 
             </article>

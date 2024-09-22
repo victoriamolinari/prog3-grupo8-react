@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from '../components/Card/Card';
 
 class Favoritos extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -11,23 +11,24 @@ class Favoritos extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const Storage = localStorage.getItem('favoritos')
-        if(Storage !== null){
+        if (Storage !== null) {
             const parsedStorage = JSON.parse(Storage);
 
             Promise.all(
-                parsedStorage.map(id => 
+                parsedStorage.map(id =>
                     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=1d1ffcbd926e19d7721125f17a8319dc`)
-                    .then((response) => response.json())
+                        .then((response) => response.json())
                 ))
-                    .then(movies => {
-                        this.setState({movies});
-                    })
-                    .catch((e) => {
-                        console.log("Error:", e);
-                    })
-        }}
+                .then(movies => {
+                    this.setState({ movies });
+                })
+                .catch((e) => {
+                    console.log("Error:", e);
+                })
+        }
+    }
 
     quitarFavoritos = (id) => {
         const Movie = this.state.movies.filter(movies => movies.id !== id);
@@ -41,7 +42,7 @@ class Favoritos extends Component {
         }
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <h1>Favoritos</h1>

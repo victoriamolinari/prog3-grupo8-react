@@ -50,19 +50,10 @@
     margin: 20px 0;
   }
   
-  .detalle-pelicula button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #e50914;
-    border: none;
-    border-radius: 6px;
+  .favorite-icon {
     cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  .detalle-pelicula button:hover {
-    background-color: #b20710;
-  }
+    font-size: 24px;
+    color: red; 
+}
   
   
