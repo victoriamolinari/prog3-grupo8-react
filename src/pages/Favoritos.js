@@ -7,7 +7,8 @@ class Favoritos extends Component {
         super(props);
 
         this.state = {
-            movies: []
+            movies: [],
+            isLoading: true
         }
     }
 
@@ -22,7 +23,7 @@ class Favoritos extends Component {
                         .then((response) => response.json())
                 ))
                 .then(movies => {
-                    this.setState({ movies });
+                    this.setState({ movies, isLoading: false });
                 })
                 .catch((e) => {
                     console.log("Error:", e);
@@ -43,6 +44,12 @@ class Favoritos extends Component {
     }
 
     render() {
+        const {isLoading} = this.state;
+
+        if (isLoading) {
+            return <h1>Cargando...</h1>;
+        }
+
         return (
             <div>
                 <h1>Favoritos</h1>

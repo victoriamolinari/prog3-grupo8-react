@@ -7,8 +7,8 @@ class ResultadoDeBusqueda extends Component {
         super(props);
 
         this.state = {
-            movies:[]
-            //Hacer lo de loading aca
+            movies:[],
+            isLoading:true
         }
     }
 
@@ -18,6 +18,7 @@ class ResultadoDeBusqueda extends Component {
         .then((data) => 
             this.setState({
                 movies:data.results,
+                isLoading: false
         })) .catch(error=> console.log(error))
 
 
@@ -25,6 +26,11 @@ class ResultadoDeBusqueda extends Component {
 
     render(){
         const { movies, isLoading } = this.state;
+
+        if (isLoading) {
+            return <h1>Cargando...</h1>;
+        }
+
         return(
             <div>
                 <h1>Resultados para: {this.props.location.state.inputSearch}</h1>
