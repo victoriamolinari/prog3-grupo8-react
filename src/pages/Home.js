@@ -1,10 +1,10 @@
 import Search from '../components/Search/Search';
 import HomeGrid from '../components/HomeGrid/HomeGrid';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
-      <Search />
+       <Search history={props.history}/>
       <HomeGrid /> 
     </>
   );

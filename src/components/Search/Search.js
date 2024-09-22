@@ -4,41 +4,39 @@ import { FaSearch } from "react-icons/fa";
 
 class Search extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        
         this.state = {
             inputSearch: "",
-            resultadosSearch: []
         }
     }
 
     handleSearchChange(event) {
-        this.setState({ inputSearch: event.target.value });
+        this.setState({ 
+        inputSearch: event.target.value });
     }
 
-
-    handleSearchSubmit(event) {
-        event.preventDefault();
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.inputSearch}&api_key=33e10f642f640258287c658cad162391`)
-        .then(response => response.json())
-        .then(data => {
-            this.setState({ resultadosSearch: data.results })
-            // console.log(this.state.resultadosSearch);
-        })
-        .catch(error => console.error('Error: ', error));
+    handleCancelSubmit(event){
+        event.preventDefault()
     }
 
+    handleSearchSubmit(){
+        console.log("envio")
+        this.props.history.push('/search', {inputSearch: this.state.inputSearch})
+    }
 
     render() {
         return (
             <>
                 <form onSubmit={(event) => this.handleSearchSubmit(event)}>
-                    <input onChange={(event) => this.handleSearchChange(event)}
-                        type="text"
+                    <input 
+                        onChange={(event) => this.handleSearchChange(event)}
+                        name="inputSearch"
                         value={this.state.inputSearch}
                         placeholder="Buscar películas..."
                     />
-                    <button type="submit" className=""><FaSearch /></button>
+                    <button onClick={()=>this.handleSearchSubmit}><FaSearch /></button>
                 </form>
                 
             </>
