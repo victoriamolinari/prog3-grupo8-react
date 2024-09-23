@@ -30,6 +30,14 @@ class ResultadoDeBusqueda extends Component {
         if (isLoading) {
             return <h1>Cargando...</h1>;
         }
+        
+        if (movies.length === 0) {
+            return (
+                <div>
+                    <h1>No se encontraron resultados para: {this.props.location.state.inputSearch}</h1>
+                </div>
+            );
+        }
 
         return(
             <div>
