@@ -56,7 +56,7 @@ class Favoritos extends Component {
                 {this.state.movies.length === 0 ? (
                     <p>No hay favoritos.</p>
                 ) : (
-                    <ul>
+                    <ul className = "div-section">
                         {this.state.movies.map(movies => (
                             <li key={movies.id}>
                                 <Card movies={movies} onRemove={this.quitarFavoritos} />

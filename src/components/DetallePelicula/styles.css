@@ -55,5 +55,46 @@
     font-size: 24px;
     color: red; 
 }
-  
+
+@media (max-width: 768px) {
+  .detalle-pelicula {
+      padding: 15px;
+  }
+
+  .detalle-pelicula-header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .detalle-pelicula img {
+      margin-right: 0;
+      margin-bottom: 20px;
+  }
+
+  .detalle-pelicula h1 {
+      font-size: 2em;
+  }
+
+  .detalle-pelicula p, .detalle-pelicula-sinopsis {
+      font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle-pelicula {
+      padding: 10px;
+  }
+
+  .detalle-pelicula h1 {
+      font-size: 1.5em;
+  }
+
+  .detalle-pelicula p, .detalle-pelicula-sinopsis {
+      font-size: 0.9em;
+  }
+
+  .favorite-icon {
+      font-size: 20px;
+  }
+}
   
