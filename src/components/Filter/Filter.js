@@ -1,7 +1,6 @@
 import './styles.css';
 
 import { Component } from 'react';
-// import { Link } from 'react-router-dom';
 
 
 class Filter extends Component {
@@ -11,20 +10,13 @@ class Filter extends Component {
         }
     }
 
-
-
-
     render() {
-
-
         return (
-            <>
-                <div className="filtro">
-                    <p>Filtrar por: </p>
-                    <button className={`filter-button ${this.props.filterRating ? "filter" : ""}`} onClick={this.props.filterByRating}>Rating {">"} 7</button>
-                    <button className={`filter-button ${this.props.filterDate ? "filter" : ""}`} onClick={this.props.filterByDate}>Estrenos de los últimos 2 meses</button>
-                </div>
-            </>
+            <div className="filtro">
+                <p>Filtrar por: </p>
+                <button className={`filter-button ${this.props.filterRating ? "filter" : ""}`} onClick={this.props.filterByRating}>Rating {">"} 7</button>
+                <button className={`filter-button ${this.props.filterDate ? "filter" : ""}`} onClick={this.props.filterByDate}>Estrenos de los últimos 2 meses</button>
+            </div>
         )
     }
 }

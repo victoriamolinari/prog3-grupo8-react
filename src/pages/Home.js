@@ -4,8 +4,8 @@ import HomeGrid from '../components/HomeGrid/HomeGrid';
 const Home = (props) => {
   return (
     <>
-       <Search history={props.history}/>
-      <HomeGrid /> 
+      <Search history={props.history} />
+      <HomeGrid />
     </>
   );
 };

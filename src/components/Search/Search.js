@@ -6,39 +6,39 @@ class Search extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
-            inputSearch: "",
+            query: "",
         }
     }
 
     handleSearchChange(event) {
-        this.setState({ 
-        inputSearch: event.target.value });
+        this.setState({
+            query: event.target.value
+        });
     }
 
-    handleCancelSubmit(event){
+    handleCancelSubmit(event) {
         event.preventDefault()
     }
 
-    handleSearchSubmit(){
-        console.log("envio")
-        this.props.history.push('/search', {inputSearch: this.state.inputSearch})
+    handleSearchSubmit() {
+        this.props.history.push('/search', { query: this.state.query })
     }
 
     render() {
         return (
             <>
                 <form onSubmit={(event) => this.handleSearchSubmit(event)}>
-                    <input 
+                    <input
                         onChange={(event) => this.handleSearchChange(event)}
-                        name="inputSearch"
-                        value={this.state.inputSearch}
+                        name="query"
+                        value={this.state.query}
                         placeholder="Buscar películas..."
                     />
-                    <button onClick={()=>this.handleSearchSubmit}><FaSearch /></button>
+                    <button onClick={() => this.handleSearchSubmit}><FaSearch /></button>
                 </form>
-                
+
             </>
         )
     }
