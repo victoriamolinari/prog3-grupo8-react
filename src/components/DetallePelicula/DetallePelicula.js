@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import './styles.css';
 
 class DetallePelicula extends Component {
@@ -13,68 +12,23 @@ class DetallePelicula extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => { 
-            fetch(`https://api.themoviedb.org/3/movie/${this.props.id}?api_key=31e421d77201e7a1eefe33f85b67fa3b`)
-                .then(response => response.json())
-                .then(data => {
-                    this.setState({ movie: data, isLoading: false });
-                    const storage = localStorage.getItem('favoritos');
-                    if (storage !== null){
-                        const parsedStorage = JSON.parse(storage);
-                        const esFavorito = parsedStorage.includes(data.id);
-                        if(esFavorito){
-                            this.setState({
-                                isFavorite: true
-                            });
-                        }
-                    }
-                })
-                .catch(error => console.error('Error: ', error));
-        }, 1000);
-    }
-
-    agregarFavorito(){
-        const storage = localStorage.getItem('favoritos');
-        if (storage !== null){
-            const parsedStorage = JSON.parse(storage);
-            parsedStorage.push(this.state.movie.id);
-            const stringStorage = JSON.stringify(parsedStorage);
-            localStorage.setItem('favoritos', stringStorage);
-        }else{
-            const primerFavorito = [this.state.movie.id];
-            const stringStorage = JSON.stringify(primerFavorito);
-            localStorage.setItem('favoritos', stringStorage);
-        }
-    }
-
-    quitarFavoritos(){
-        const storage = localStorage.getItem('favoritos');
-        const parsedStorage = JSON.parse(storage);
-        const restoFavoritos = parsedStorage.filter(id => id !== this.state.movie.id);
-        const stringStorage = JSON.stringify(restoFavoritos);
-        localStorage.setItem('favoritos', stringStorage);
-        this.setState({
-            isFavorite: false
-        });
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.id}?api_key=31e421d77201e7a1eefe33f85b67fa3b`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ movie: data, isLoading: false });
+            })
+            .catch(error => console.error('Error: ', error));
     }
 
     toggleFavorite = () => {
-        this.setState(prevState => ({
-            isFavorite: !prevState.isFavorite
-        }), () => {
-            if(this.state.isFavorite) {
-                this.agregarFavorito();
-            } else {
-                this.quitarFavoritos();
-            }
-        });
+        this.setState(prevState => ({ isFavorite: !prevState.isFavorite }));
     }
 
     render() {
-        const { movie, isFavorite, isLoading } = this.state;
+        const { movie, isFavorite, isLoading} = this.state;
 
         if (isLoading) {
-            return <h1>Cargando...</h1>;
+            return <h1>Cargando...</h1>
         }
 
         return (
@@ -86,9 +40,9 @@ class DetallePelicula extends Component {
                 <p><strong>Duración:</strong> {movie.runtime} minutos</p>
                 <p><strong>Sinópsis:</strong> {movie.overview}</p>
                 <p><strong>Género:</strong> {movie.genres.map(genre => genre.name).join(', ')}</p>
-                <div className="favorite-icon" onClick={this.toggleFavorite}>
-                    {isFavorite ? <FaHeart /> : <FaRegHeart />}
-                </div>
+                <button onClick={this.toggleFavorite}>
+                    {isFavorite ? 'Quitar de Favoritos' : 'Agregar a Favoritos'}
+                </button>
             </div>
         );
     }
