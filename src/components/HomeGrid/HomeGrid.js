@@ -30,7 +30,7 @@ class HomeGrid extends Component {
         // console.log(this.state)
         return (
             <>
-                <HomeSection sectionName="Popular" data={this.state.popular.slice(0, 5)} />
+                <HomeSection sectionName="Populares" data={this.state.popular.slice(0, 5)} />
                 <HomeSection sectionName="Upcoming" data={this.state.upcoming.slice(0, 5)} />
             </>
         )

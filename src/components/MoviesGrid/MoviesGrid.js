@@ -13,7 +13,9 @@ class MoviesGrid extends Component {
             popularUnfiltered: [],
             filterRating: false,
             filterDate: false,
-            isLoading: true
+            isLoading: true,
+            upcoming: [],
+            upcomingUnfiltered: []
         }
     }
 

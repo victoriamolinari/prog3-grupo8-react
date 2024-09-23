@@ -21,6 +21,8 @@ class HomeSection extends Component {
             this.state.data = this.props.upcoming
         }
 
+        console.log(this.props.sectionName)
+
 
         return (
             <>

@@ -18,7 +18,7 @@ class HomeSection extends Component {
             <>
                 <div className="div-section">
                     <h3 className="h3-section">{this.props.sectionName}</h3>
-                    <Link to="/populares"><button className="ver-todas-button">Ver todas</button></Link >
+                    <Link to={`/${this.props.sectionName.toLowerCase()}`}><button className="ver-todas-button">Ver todas</button></Link >
                 </div>
 
 
