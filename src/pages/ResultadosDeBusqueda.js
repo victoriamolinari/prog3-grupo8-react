@@ -1,6 +1,5 @@
 import React from 'react'
 import { Component } from 'react'
-
 import Section from '../components/Section/Section';
 
 class ResultadoDeBusqueda extends Component {

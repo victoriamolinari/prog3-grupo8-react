@@ -19,9 +19,3 @@ const MoviesGrid = (props) => { // recibe sectionName y movies
 
 export default MoviesGrid;
 
-// componentDidMount() {
-//     fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=33e10f642f640258287c658cad162391')
-//         .then(response => response.json())
-//         .then(data => this.setState({ upcoming: data.results, upcomingUnfiltered: data.results, isLoading: false }))
-//         .catch(error => console.error('Error: ', error));
-// }
