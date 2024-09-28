@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 
 class Upcoming extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
 
       upcoming: [],
@@ -22,8 +22,8 @@ class Upcoming extends Component {
   }
 
   componentDidMount() {
-    fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=33e10f642f640258287c658cad162391')      
-    .then(response => response.json())
+    fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=33e10f642f640258287c658cad162391')
+      .then(response => response.json())
       .then(data => this.setState({
         upcoming: data.results,
         upcomingUnfiltered: data.results

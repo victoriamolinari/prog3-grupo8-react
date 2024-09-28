@@ -42,7 +42,7 @@
 }
 
 .movies-button {
-    background-color: #777; /* Green */
+    background-color: #777;
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -51,4 +51,24 @@
     text-align: center;
     text-decoration: none;
     font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .movies-card {
+        width: 180px;
+    }
+
+    .movies-image {
+        width: 160px;
+    }
+
+    .movies-button {
+        font-size: 12px;
+    }
+
+    .show {
+        font-size: 12px;
+        margin: 0px;
+        padding-bottom: 8px;
+    }
 }

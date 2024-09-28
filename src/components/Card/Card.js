@@ -15,12 +15,12 @@ class Card extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const storage = localStorage.getItem('favoritos');
-        if (storage !== null){
+        if (storage !== null) {
             const parsedStorage = JSON.parse(storage);
             const esFavorito = parsedStorage.includes(this.props.movies.id)
-            if(esFavorito){
+            if (esFavorito) {
                 this.setState({
                     fav: true
                 })
@@ -28,21 +28,21 @@ class Card extends Component {
         }
     }
 
-    agregarFavorito(){
+    agregarFavorito() {
         const storage = localStorage.getItem('favoritos');
-        if (storage !== null){
+        if (storage !== null) {
             const parsedStorage = JSON.parse(storage);
             parsedStorage.push(this.props.movies.id)
             const stringStorage = JSON.stringify(parsedStorage)
             localStorage.setItem('favoritos', stringStorage)
-        }else{
+        } else {
             const primerFavorito = [this.props.movies.id];
             const stringStorage = JSON.stringify(primerFavorito);
             localStorage.setItem('favoritos', stringStorage)
         }
     }
 
-    quitarFavoritos(){
+    quitarFavoritos() {
         const storage = localStorage.getItem('favoritos');
         const parsedStorage = JSON.parse(storage);
         const restoFavoritos = parsedStorage.filter(id => id !== this.props.movies.id);
@@ -62,14 +62,14 @@ class Card extends Component {
     handleFav() {
         this.setState({
             fav: !this.state.fav
-        }, 
-        () => {
-            if(this.state.fav) {
-                this.agregarFavorito();
-            } else {
-                this.quitarFavoritos();
-            }
-        });
+        },
+            () => {
+                if (this.state.fav) {
+                    this.agregarFavorito();
+                } else {
+                    this.quitarFavoritos();
+                }
+            });
     }
 
     render() {

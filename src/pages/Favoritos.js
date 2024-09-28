@@ -43,7 +43,7 @@ class Favoritos extends Component {
     }
 
     render() {
-        const {isLoading} = this.state;
+        const { isLoading } = this.state;
 
         if (isLoading) {
             return <h1>Cargando...</h1>;
@@ -55,11 +55,9 @@ class Favoritos extends Component {
                 {this.state.movies.length === 0 ? (
                     <p>No hay favoritos.</p>
                 ) : (
-                    <ul className = "div-section">
+                    <ul className="div-section">
                         {this.state.movies.map(movies => (
-                            <li key={movies.id}>
-                                <Card movies={movies} onRemove={this.quitarFavoritos} />
-                            </li>
+                            <Card movies={movies} key={movies.id} onRemove={this.quitarFavoritos} />
                         ))}
                     </ul>
                 )}

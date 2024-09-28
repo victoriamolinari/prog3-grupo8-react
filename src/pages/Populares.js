@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 
 class Populares extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
 
       // Arrays con películas

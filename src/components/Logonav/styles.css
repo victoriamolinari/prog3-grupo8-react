@@ -10,3 +10,9 @@ ul li {
     flex-direction: row;
     padding: 0px 15px;
 }
+
+@media (max-width: 768px) {
+    .user {
+        display: none;
+    }
+}
